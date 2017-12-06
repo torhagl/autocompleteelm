@@ -85,7 +85,7 @@ view model =
 
 viewAlternatives : String -> List String -> Html Msg
 viewAlternatives input db =
-    div [] <| List.take 15 <| List.map (\y -> div [ class "alternative row col col-6" ] [ Html.text y ]) (List.filter (Regex.contains (Regex.caseInsensitive <| regex <| "^" ++ input)) db)
+    div [] <| List.take 15 <| List.map (\y -> div [ class "alternative" ] [ Html.text y ]) (List.filter (Regex.contains (Regex.caseInsensitive <| regex <| "^" ++ input)) db)
 
 
 db : List String

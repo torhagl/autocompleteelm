@@ -9697,7 +9697,7 @@ var _user$project$Main$viewAlternatives = F2(
 							_elm_lang$html$Html$div,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('alternative row col col-6'),
+								_0: _elm_lang$html$Html_Attributes$class('alternative'),
 								_1: {ctor: '[]'}
 							},
 							{

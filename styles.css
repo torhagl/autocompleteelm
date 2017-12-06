@@ -31,8 +31,7 @@ body {
 
 .alternative {
   border-bottom: 1px solid rgba(88,88,88,1);
-  background-color: #red;
-  display: block;
+  padding: 0.5em;
 }
 
 .restricted-width{
