@@ -22,7 +22,7 @@ init =
 
 
 
--- MODEL
+-- MODL
 
 
 type alias Model =
