@@ -32,7 +32,7 @@ body {
 .alternative {
   border-bottom: 1px solid rgba(88,88,88,1);
   background-color: #red;
-  display: inline-block;
+  display: block;
 }
 
 .restricted-width{

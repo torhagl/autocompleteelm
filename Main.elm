@@ -205,6 +205,8 @@ db =
     , "had"
     , "has"
     , "hasnt"
+    , "nigger"
+    , "niggerfaggot"
     , "have"
     , "he"
     , "hence"
