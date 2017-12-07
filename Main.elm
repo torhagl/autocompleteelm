@@ -2,8 +2,12 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events as Events exposing (..)
-import Regex exposing (..)
+import Html.Events as Events
+import Regex
+import Bootstrap.CDN as CDN
+import Bootstrap.Grid as Grid
+import Bootstrap.Form.Input as Input
+import String.Extra exposing (..)
 
 
 main =
@@ -67,25 +71,26 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "grid" ]
-        [ div [ class "row" ]
-            [ div
-                [ class "col col-12" ]
-                [ input [ placeholder "Start typing!", Events.onInput Input ] []
-                , div []
-                    [ if model.input == "" then
-                        text "Results come here!"
-                      else
-                        viewAlternatives model.input db
-                    ]
+    Grid.container []
+        [ CDN.stylesheet
+        , div [ style [ ( "margin-top", "2em" ) ] ]
+            [ Input.text
+                [ Input.placeholder "Start typing!"
+                , Input.onInput Input
                 ]
+            ]
+        , div [ style [ ( "margin-top", "0.5em" ) ] ]
+            [ if model.input == "" then
+                text "Results come here!"
+              else
+                viewAlternatives model.input db
             ]
         ]
 
 
 viewAlternatives : String -> List String -> Html Msg
 viewAlternatives input db =
-    div [] <| List.take 15 <| List.map (\y -> div [ class "alternative" ] [ Html.text y ]) (List.filter (Regex.contains (Regex.caseInsensitive <| regex <| "^" ++ input)) db)
+    div [] <| List.take 15 <| List.map (\y -> div [ class "alternative" ] [ Html.text <| toSentenceCase y ]) (List.filter (Regex.contains (Regex.caseInsensitive <| Regex.regex <| "^" ++ input)) db)
 
 
 db : List String
